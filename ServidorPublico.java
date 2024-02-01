@@ -1,7 +1,7 @@
 public class ServidorPublico{
     String nome;
     int matricula;
-    char sexo;
+    String sexo;
     String departamento;
     String dataNascimento;
     float peso;
@@ -11,14 +11,6 @@ public class ServidorPublico{
     CarteiraVacina vacinas = new CarteiraVacina();
     ListaExames exames = new ListaExames();
 
-
-    public void cadastrar(String nome, int matricula, char sexo, String departamento, String dataNascimento){
-        this.nome = nome;
-        this.matricula = matricula;
-        this.sexo = sexo;
-        this.departamento = departamento;
-        this.dataNascimento = dataNascimento;
-    }
 
 
 }
