@@ -3,7 +3,7 @@ public class ServidorPublico{
     int matricula;
     char sexo;
     String departamento;
-    int dataNascimento;
+    String dataNascimento;
     float peso;
     float altura;
     float pressão;
@@ -12,7 +12,7 @@ public class ServidorPublico{
     ListaExames exames = new ListaExames();
 
 
-    public void cadastrar(String nome, int matricula, char sexo, String departamento, int dataNascimento){
+    public void cadastrar(String nome, int matricula, char sexo, String departamento, String dataNascimento){
         this.nome = nome;
         this.matricula = matricula;
         this.sexo = sexo;

@@ -1,14 +1,24 @@
+import java.util.Scanner;
+
 public class ListaExames {
 
     Exames refExames;
     ServidorPublico pessoa;
+    Scanner sc1 = new Scanner(System.in);
 
     public void inserirExame(int tipo) {
         Exames novo = null;
 
         switch (tipo) {
             case 1:
-                novo = new Sangue();
+                double h, p, l;
+                System.out.println("Informe o nível das Hemácias:");    
+                h = sc1.nextDouble();
+                System.out.println("Informe o nível das Plaquetas:");
+                p = sc1.nextDouble();
+                System.out.println("Informe o nível dos Leucócitos:");
+                l = sc1.nextDouble();
+                novo = new Sangue(h,l,p);
                 break;
 
             case 2:
