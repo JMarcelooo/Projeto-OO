@@ -9,8 +9,7 @@ public class ListaServidores {
   
     public void cadastrarServidor(){
         
-        
-        
+
         ServidorPublico novo = new ServidorPublico();
         System.out.print("NOME:");
         String nome = scan.nextLine();

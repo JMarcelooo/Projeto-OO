@@ -1,3 +1,4 @@
+
 import java.util.Scanner;
 
 public class Main {
@@ -70,7 +71,16 @@ public class Main {
                                 switch(opc3){
                                     case 1:
                                         Servidor.exames.inserirExame(1);
+                                        clearScreen();
+                                        System.out.println("Exames adicionados com sucesso!");
+                                        break;
 
+                                    case 2:
+                                        
+                                        Servidor.exames.inserirExame(2);
+                                        clearScreen();
+                                        System.out.println("Exames adicionados com sucesso!");
+                                        break;
 
                                 }
                             }while(opc3!=4);
@@ -113,6 +123,6 @@ public class Main {
     
     
         }while(opc1!=4);
-        
+        scan.close();
     }
 }

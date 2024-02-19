@@ -22,7 +22,44 @@ public class ListaExames {
                 break;
 
             case 2:
-                novo = new Urina();
+                boolean para, s;
+                String t;
+                System.out.println("Informe se foram detectados parasitas[S/N]");
+                String op = sc1.nextLine();
+                switch(op){
+                    case "S":
+                    case "s":
+                        para = true;
+                        System.out.println("Informe o tipo do parasita:");
+                        t = sc1.nextLine();
+                        break;
+
+                    case "N":
+                    case "n":
+                        para = false;
+                        t = null;
+                        break;
+
+                    default:
+                        System.out.println("opcao inválida!");    
+                        break;
+                }
+                System.out.println("Informe se foi encontrado sangue[S/N]");
+                op = sc1.nextLine();
+                switch(op){
+                    case "S":
+                    case "s":
+                        s = true;
+                        break;
+                    case "N":
+                    case "n":
+                        s = false;
+                        break;
+                    default:
+                        System.out.println("opcao invalida");
+                        break;
+                }
+                novo = new Urina(para, t, s);
                 break;
 
             case 3:
