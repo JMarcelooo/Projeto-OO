@@ -56,34 +56,46 @@ public class Main {
                         switch(opc2){
 
                             case 1:
-                            int opc3;
-                            clearScreen();
-                            do{
-                                System.out.println("=========================Exames=======================");
-                                System.out.println("1 - Sangue");
-                                System.out.println("2 - Urina");
-                                System.out.println("3 - Fezes");
-                                System.out.println("4 - Voltar");
-                                System.out.println("=======================================================");
-                                opc3 = scan.nextInt();
+                                int opc3;
+                                clearScreen();
+                                do{
+                                    System.out.println("=========================Exames=======================");
+                                    System.out.println("1 - Sangue");
+                                    System.out.println("2 - Urina");
+                                    System.out.println("3 - Fezes");
+                                    System.out.println("4 - Voltar");
+                                    System.out.println("=======================================================");
+                                    opc3 = scan.nextInt();
 
 
-                                switch(opc3){
-                                    case 1:
-                                        Servidor.exames.inserirExame(1);
-                                        clearScreen();
-                                        System.out.println("Exames adicionados com sucesso!");
-                                        break;
+                                    switch(opc3){
+                                        case 1:
+                                            Servidor.exames.inserirExame(1);
+                                            clearScreen();
+                                            System.out.println("Exames adicionados com sucesso!");
+                                            break;
 
-                                    case 2:
-                                        
-                                        Servidor.exames.inserirExame(2);
-                                        clearScreen();
-                                        System.out.println("Exames adicionados com sucesso!");
-                                        break;
+                                        case 2:
+                                            Servidor.exames.inserirExame(2);
+                                            clearScreen();
+                                            System.out.println("Exames adicionados com sucesso!");
+                                            break;
 
-                                }
-                            }while(opc3!=4);
+                                        case 3:
+                                            Servidor.exames.inserirExame(3);
+                                            clearScreen();
+                                            System.out.println("Exames adicionados com sucesso!");
+                                            break;
+                                        case 4:
+                                            break;
+                                        default:
+                                            System.out.println("Opção Inválida!");
+                                            break;
+                                    }
+                                }while(opc3!=4);
+                                break;
+                        
+                            case 2:
                         }
 
 
@@ -99,9 +111,9 @@ public class Main {
                     }else{
                         System.out.println("Informe a matricula:");
                         matricula = scan.nextInt();
-                        scan.nextLine();
+                        scan.nextLine().trim();
                         System.out.println("Você tem certeza que quer descadastrar esse servidor?\n(S/N)");
-                        String opcString = scan.nextLine();
+                        String opcString = scan.nextLine().trim();
                         if(opcString == "S"){
                             ListaServidor.descadastrarServidor(matricula);
                             System.out.println("Servidor descadastrado com sucesso!");

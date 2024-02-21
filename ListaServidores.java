@@ -12,20 +12,20 @@ public class ListaServidores {
 
         ServidorPublico novo = new ServidorPublico();
         System.out.print("NOME:");
-        String nome = scan.nextLine();
+        String nome = scan.nextLine().trim();
         novo.nome = nome;
         System.out.print("MATRICULA:");
         int matricula = scan.nextInt();
         novo.matricula = matricula;
-        scan.nextLine();
+        scan.nextLine().trim();
         System.out.print("SEXO:");
-        String sexo = scan.nextLine();
+        String sexo = scan.nextLine().trim();
         novo.sexo = sexo;
         System.out.print("DEPARTAMENTO:");
-        String departamento = scan.nextLine();
+        String departamento = scan.nextLine().trim();
         novo.departamento = departamento;
         System.out.print("DATA DE NASCIMENTO(dd/mm/aa):");
-        String dataNascimento = scan.nextLine();
+        String dataNascimento = scan.nextLine().trim();
         novo.dataNascimento = dataNascimento;
         ListaServidor.add(novo);
         tamanho++;

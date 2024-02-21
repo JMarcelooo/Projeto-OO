@@ -51,4 +51,16 @@ public class Sangue extends Exames{
 
     }
 
+    public double getHemacias(){
+        return this.hemacias;
+    }
+    
+    public double getLeucocitos(){
+        return this.leucocitos;
+    }
+
+    public double getPlaquetas(){
+        return this.plaquetas;
+    }
+
 }
