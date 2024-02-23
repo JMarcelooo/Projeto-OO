@@ -27,6 +27,7 @@ public class Main {
             System.out.println("|4 - Sair                                                       |");
             System.out.println("=================================================================");
             opc1 = scan.nextInt();
+            scan.nextLine();
             
             switch(opc1){
 
@@ -40,7 +41,7 @@ public class Main {
                 case 2:
                     clearScreen();
                     System.out.print("Informe a matrícula:");
-                    int matricula = scan.nextInt();
+                    String matricula = scan.nextLine();
                     int opc2=0;
                     ServidorPublico Servidor = ListaServidor.findServidor(matricula);
                     do{
@@ -63,7 +64,8 @@ public class Main {
                                     System.out.println("1 - Sangue");
                                     System.out.println("2 - Urina");
                                     System.out.println("3 - Fezes");
-                                    System.out.println("4 - Voltar");
+                                    System.out.println("4 - Exames Básicos");
+                                    System.out.println("5 - Voltar");
                                     System.out.println("=======================================================");
                                     opc3 = scan.nextInt();
 
@@ -87,15 +89,58 @@ public class Main {
                                             System.out.println("Exames adicionados com sucesso!");
                                             break;
                                         case 4:
+                                            Servidor.exames.inserirExame(4);
+                                            clearScreen();
+                                            System.out.println("Exames adicionados com sucesso!");
                                             break;
+                                        case 5:
+                                            break; 
                                         default:
                                             System.out.println("Opção Inválida!");
                                             break;
-                                    }
-                                }while(opc3!=4);
-                                break;
-                        
-                            case 2:
+                                        }
+                                    }while(opc3!=5);
+                                    break;
+                                    
+                                case 2:
+                                    clearScreen();
+                                    int opc4;
+                                    do{
+                                        System.out.println("=========================================================");
+                                        System.out.println("1 - Sangue");
+                                        System.out.println("2 - Urina");
+                                        System.out.println("3 - Fezes");
+                                        System.out.println("4 - Basicos");
+                                        System.out.println("5 - Voltar");
+                                        System.out.println("=========================================================");
+                                        opc4 = scan.nextInt();
+                                        switch(opc4){
+                                            case 1:
+                                                clearScreen();
+                                                Servidor.exames.mostrarExames(1);
+                                                break;
+                                            case 2:
+                                                clearScreen();
+                                                Servidor.exames.mostrarExames(2);
+                                                break;
+                                            case 3:
+                                                clearScreen();
+                                                Servidor.exames.mostrarExames(3);
+                                                break;
+                                            case 4:
+                                                clearScreen();
+                                                Servidor.exames.mostrarExames(4);
+                                                break;
+                                            case 5:
+                                                break;
+                                            default:
+                                                clearScreen();
+                                                System.out.println("Opcao inválida");
+                                                break;
+
+                                        }
+                                    }while(opc4!=5);
+                                    break;
                         }
 
 
@@ -110,7 +155,7 @@ public class Main {
                         break;
                     }else{
                         System.out.println("Informe a matricula:");
-                        matricula = scan.nextInt();
+                        matricula = scan.nextLine();
                         scan.nextLine().trim();
                         System.out.println("Você tem certeza que quer descadastrar esse servidor?\n(S/N)");
                         String opcString = scan.nextLine().trim();

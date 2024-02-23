@@ -5,28 +5,28 @@ public class ListaExames {
     Exames refExames;
     ServidorPublico pessoa;
     Scanner sc1 = new Scanner(System.in);
-    Scanner sc2 = new Scanner(System.in);
+    
 
     public void inserirExame(int tipo) {
-
+        Scanner sc2 = new Scanner(System.in);
         Exames novo = null;
         String data = null; 
         String hospital = null;
         System.out.println("Informe qual a data do exame:");
-        data = sc1.nextLine().trim();
+        data = sc2.nextLine().trim();
         System.out.println("Informe o Hospital onde o exame foi realizado:");
-        hospital = sc1.nextLine().trim();
+        hospital = sc2.nextLine().trim();
 
         switch (tipo) {
             case 1:
                 double h, p, l;
 
                 System.out.println("Informe o nível das Hemácias:");    
-                h = sc1.nextDouble();
+                h = sc2.nextDouble();
                 System.out.println("Informe o nível das Plaquetas:");
-                p = sc1.nextDouble();
+                p = sc2.nextDouble();
                 System.out.println("Informe o nível dos Leucócitos:");
-                l = sc1.nextDouble();
+                l = sc2.nextDouble();
                 novo = new Sangue(h,l,p);
                 novo.setData(data);
                 novo.setHospital(hospital);
@@ -37,6 +37,7 @@ public class ListaExames {
                 boolean para = false; 
                 boolean s= false;
                 String t = null;
+                float phUrina;
 
         
                 System.out.println("Informe se foram detectados parasitas[S/N]");
@@ -74,7 +75,9 @@ public class ListaExames {
                         System.out.println("opcao invalida");
                         break;
                 }
-                novo = new Urina(para, t, s);
+                System.out.println("Informe o PH:");
+                phUrina = sc2.nextFloat();
+                novo = new Urina(para, t, s, phUrina);
                 novo.setData(data);
                 novo.setHospital(hospital);
                 break;
@@ -90,38 +93,48 @@ public class ListaExames {
                 double ph;
                 
                 System.out.println("Informe se foram detectados parasitas[S/N]:");
-                op = sc1.nextLine().trim();
+                op = sc2.nextLine().trim();
                 if(op.equals("S") || op.equals("s")){
                     parasita = true;
                 }
                 if(parasita){
                     System.out.println("Informe o tipo do parasita:");
-                    tipoParasita = sc1.nextLine().trim();
+                    tipoParasita = sc2.nextLine().trim();
                     System.out.println("Foram encontrados ovos do parasita[S/N]:");
-                    op = sc1.nextLine().trim();
+                    op = sc2.nextLine().trim();
                     if(op.equals("S") || op.equals("s")){
                         ovoParasita = true;
                     }
                 }
                 System.out.println("Informe a cor:");
-                cor = sc1.nextLine().trim();
+                cor = sc2.nextLine().trim();
                 System.out.println("Informe se houve sangue[S/N]:");
-                op = sc1.nextLine().trim();
+                op = sc2.nextLine().trim();
                 if(op.equals("S") || op.equals("s")){
                     sangue = true;
                 }
                 System.out.println("Informe se houve gordura[S/N]:");
-                op = sc1.nextLine().trim();
+                op = sc2.nextLine().trim();
                 if(op.equals("S") || op.equals("s")){
                     gordura = true;
                 }
                 System.out.println("Informe o nível de PH:");
-                ph = sc1.nextDouble();
+                ph = sc2.nextDouble();
                 novo = new Fezes(parasita, ovoParasita, tipoParasita, cor, sangue, gordura, ph);
                 novo.setData(data);
                 novo.setHospital(hospital);
                 break;
-            
+
+            case 4:
+                float altura, peso, pressaoArterial;
+                System.out.println("Informe a sua altura:");
+                altura = sc2.nextFloat();
+                System.out.println("Informe o seu peso:");
+                peso = sc2.nextFloat();
+                System.out.println("Informe a presão arterial:");
+                pressaoArterial = sc2.nextFloat();
+                novo = new Basicos(altura, peso, pressaoArterial);
+                break; 
         }
 
         if (refExames == null) {
@@ -135,7 +148,7 @@ public class ListaExames {
         }
     }
 
-    public void retirarVacina(Exames remov) {
+    public void retirarExame(Exames remov) {
         if (remov == null || refExames == null) {
             return;
         }
@@ -149,6 +162,95 @@ public class ListaExames {
         }
         if (aux.getProx() == remov) {
             aux.getProx().setProx(aux.getProx().getProx().getProx());
+        }
+    }
+
+    public void mostrarExames(int tipo){
+        Exames aux = refExames;
+        int cont = 1;
+        switch (tipo){
+            case 1:
+
+            System.out.println("=================Exames de Sangue=============");
+            while(aux!=null){
+                if(aux instanceof Sangue){
+                    Sangue sangue = (Sangue)aux;
+                    System.out.println("\t\t"+"Exame "+ cont + "\t\n");
+                    System.out.println("\t" + "Data do Exame:" + sangue.getData());
+                    System.out.println("\t" + "Hospital:" + sangue.getHospital() );
+                    System.out.println("Nível de Hemácias:" + sangue.getHemacias()+ "\t" + sangue.hemacias());
+                    System.out.println("Nível de Leucócitos:" + sangue.getLeucocitos()+ "\t" + sangue.leucocitos());
+                    System.out.println("Nível de Plaquetas:" + sangue.getPlaquetas()+ "\t" + sangue.plaquetas());
+                    System.out.println("============================================");
+                    cont++;
+                }
+                aux = aux.getProx();
+            }
+            break;
+
+            case 2:
+                System.out.println("=================Exames de Urina=============");
+                while(aux!=null){
+                    if(aux instanceof Urina){
+                        Urina urina = (Urina)aux;
+                        System.out.println("\t\t"+"Exame "+ cont + "\t\n");
+                        System.out.println("\t" + "Data do Exame:" + urina.getData());
+                        System.out.println("\t" + "Hospital:" + urina.getHospital() );
+                        System.out.println("Concentração do PH:" + urina.getPh()+ "\t" + urina.ph());
+                        System.out.println("Presença de Parasita:" + urina.parasita());
+                        if(urina.getParasita()){
+                            System.out.println("Tipo do parasita:" + urina.getTipoParasita());
+                        }
+                        System.out.println("Presença de Sangue:" + urina.sangue());
+                        System.out.println("============================================");
+                        cont++;
+                    }
+                    aux = aux.getProx();
+                }
+                break;
+            
+            case 3:
+                System.out.println("=================Exames de Fezes=============");
+                while(aux!=null){
+                    if(aux instanceof Fezes){
+                        Fezes fezes = (Fezes)aux;
+                        System.out.println("\t\t"+"Exame "+ cont + "\t\n");
+                        System.out.println("\t" + "Data do Exame:" + fezes.getData());
+                        System.out.println("\t" + "Hospital:" + fezes.getHospital() );
+                        System.out.println("Concentração do PH:" + fezes.getPH()+ "\t" + fezes.ph());
+                        System.out.println("Presença de Parasita:" + fezes.parasita());
+                        if(fezes.getParasita()){
+                            System.out.println("Tipo do parasita:" + fezes.getTipoParasita());
+                            System.out.println("Presença de Ovos:" + fezes.ovo());
+                        }
+                        System.out.println("Presença de Sangue:" + fezes.sangue());
+                        System.out.println("Presença de Gordura:" + fezes.gordura());
+                        System.out.println("Cor: " + fezes.getCor());
+                        System.out.println("============================================");
+                        cont++;
+                    }
+                    aux = aux.getProx();
+                }
+                break;
+            
+            case 4:
+            System.out.println("=================Exames Basicos=============");
+            while(aux!=null){
+                if(aux instanceof Basicos){
+                    Basicos basicos = (Basicos)aux;
+                    System.out.println("\t\t"+"Exame "+ cont + "\t\n");
+                    System.out.println("\t" + "Data do Exame:" + basicos.getData());
+                    System.out.println("\t" + "Hospital:" + basicos.getHospital() );
+                    System.out.println("Altura:" + basicos.getAltura());
+                    System.out.println("Peso:" + basicos.getPeso());
+                    System.out.println("Pressão Artérial:" + basicos.getPressao());
+                    System.out.println("IMC:" + basicos.getIMC());
+                    System.out.println("============================================");
+                    cont++;
+                }
+                aux = aux.getProx();
+            }
+            break;
         }
     }
 }

@@ -3,12 +3,60 @@ public class Urina extends Exames {
     private boolean positivoParasitas;
     private String tipoParasita;
     private boolean testeSangueOculto;
+    private float ph;
     
 
 
-    public Urina(boolean parasita, String tipo, boolean sangue){
+    public Urina(boolean parasita, String tipo, boolean sangue, float ph){
         this.positivoParasitas = parasita;
         this.tipoParasita = tipo;
         this.testeSangueOculto = sangue;
+        this.ph = ph;
     } 
+
+
+    public boolean getParasita(){
+        return this.positivoParasitas;
+    }
+
+    public String getTipoParasita(){
+        return this.tipoParasita;
+    }
+
+    public boolean getSangue(){
+        return this.testeSangueOculto;
+    }
+
+    public float getPh(){
+        return this.ph;
+    }
+
+    public String ph(){
+        if(this.ph>=4.6||this.ph<=8.0){
+            return "Concentração Saudável";
+        } else if(this.ph>8){
+            return "Concentração Alta";
+        } else {
+            return "Concentração Baixa";
+        }
+    }
+
+    public String parasita(){
+        if(this.positivoParasitas)
+            return "Sim";
+         else 
+            return "Não"; 
+    }
+
+    public String sangue(){
+        if(this.testeSangueOculto)
+            return "Sim";
+        else
+            return "Não";
+    }
+
+
+
+
+
 }

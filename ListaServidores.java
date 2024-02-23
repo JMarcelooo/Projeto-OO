@@ -15,9 +15,8 @@ public class ListaServidores {
         String nome = scan.nextLine().trim();
         novo.nome = nome;
         System.out.print("MATRICULA:");
-        int matricula = scan.nextInt();
+        String matricula = scan.nextLine();
         novo.matricula = matricula;
-        scan.nextLine().trim();
         System.out.print("SEXO:");
         String sexo = scan.nextLine().trim();
         novo.sexo = sexo;
@@ -31,9 +30,9 @@ public class ListaServidores {
         tamanho++;
     }
 
-    public ServidorPublico findServidor(int matricula){
+    public ServidorPublico findServidor(String matricula){
         int index = 0;
-        while(ListaServidor.get(index).matricula != matricula){
+        while(!ListaServidor.get(index).matricula.equals(matricula)){
             index++;
         }
         if(index<ListaServidor.size()){
@@ -42,7 +41,7 @@ public class ListaServidores {
         return null;
     }
 
-    public void descadastrarServidor(int matricula){
+    public void descadastrarServidor(String matricula){
         ListaServidor.remove(findServidor(matricula));
         tamanho--;
     }

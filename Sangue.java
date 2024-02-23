@@ -62,5 +62,4 @@ public class Sangue extends Exames{
     public double getPlaquetas(){
         return this.plaquetas;
     }
-
 }

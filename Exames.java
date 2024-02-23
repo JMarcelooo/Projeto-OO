@@ -23,4 +23,7 @@ public abstract class Exames {
     public Exames getProx(){
         return this.prox;
     }
+
+   
+    
 }
