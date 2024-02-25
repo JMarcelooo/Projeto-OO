@@ -75,9 +75,9 @@ public class Fezes extends Exames {
     }
 
     public String ph(){
-        if(this.pH>=5.5||this.pH<=7){
+        if(this.pH>=indices.phFezesMin||this.pH<=indices.phFezesMax){
             return "Concentração Saudável";
-        } else if(this.pH>7){
+        } else if(this.pH>indices.phFezesMax){
             return "Concentração Alta";
         } else {
             return "Concentração Baixa";

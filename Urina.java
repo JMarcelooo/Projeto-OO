@@ -32,9 +32,9 @@ public class Urina extends Exames {
     }
 
     public String ph(){
-        if(this.ph>=4.6||this.ph<=8.0){
+        if(this.ph>=indices.phUrinaMin||this.ph<=indices.phUrinaMax){
             return "Concentração Saudável";
-        } else if(this.ph>8){
+        } else if(this.ph>indices.phUrinaMax){
             return "Concentração Alta";
         } else {
             return "Concentração Baixa";

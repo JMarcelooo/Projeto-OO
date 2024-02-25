@@ -10,8 +10,8 @@ public class ListaExames {
     public void inserirExame(int tipo) {
         Scanner sc2 = new Scanner(System.in);
         Exames novo = null;
-        String data = null; 
-        String hospital = null;
+        String data; 
+        String hospital;
         System.out.println("Informe qual a data do exame:");
         data = sc2.nextLine().trim();
         System.out.println("Informe o Hospital onde o exame foi realizado:");
@@ -134,6 +134,8 @@ public class ListaExames {
                 System.out.println("Informe a presão arterial:");
                 pressaoArterial = sc2.nextFloat();
                 novo = new Basicos(altura, peso, pressaoArterial);
+                novo.setData(data);
+                novo.setHospital(hospital);
                 break; 
         }
 
@@ -233,24 +235,24 @@ public class ListaExames {
                 }
                 break;
             
-            case 4:
-            System.out.println("=================Exames Basicos=============");
-            while(aux!=null){
-                if(aux instanceof Basicos){
-                    Basicos basicos = (Basicos)aux;
-                    System.out.println("\t\t"+"Exame "+ cont + "\t\n");
-                    System.out.println("\t" + "Data do Exame:" + basicos.getData());
-                    System.out.println("\t" + "Hospital:" + basicos.getHospital() );
-                    System.out.println("Altura:" + basicos.getAltura());
-                    System.out.println("Peso:" + basicos.getPeso());
-                    System.out.println("Pressão Artérial:" + basicos.getPressao());
-                    System.out.println("IMC:" + basicos.getIMC());
-                    System.out.println("============================================");
-                    cont++;
-                }
-                aux = aux.getProx();
-            }
-            break;
+                case 4:
+                    System.out.println("================= Exames Básicos =============");
+                    while (aux != null) {
+                        if (aux instanceof Basicos) {
+                            Basicos basicos = (Basicos) aux;
+                            System.out.println("\t\t" + "Exame " + cont + "\t\n");
+                            System.out.println("\t" + "Data do Exame: " + basicos.getData());
+                            System.out.println("\t" + "Hospital: " + basicos.getHospital());
+                            System.out.println("Altura: " + basicos.getAltura());
+                            System.out.println("Peso: " + basicos.getPeso());
+                            System.out.println("Pressão Artérial: " + basicos.getPressao());
+                            System.out.println("IMC: " + basicos.getIMC() + "\t" + basicos.IMC());
+                            System.out.println("============================================");
+                            cont++;
+                        }
+                        aux = aux.getProx();
+                    }
+                break;
         }
     }
 }

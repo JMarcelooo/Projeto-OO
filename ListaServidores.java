@@ -30,19 +30,27 @@ public class ListaServidores {
         tamanho++;
     }
 
-    public ServidorPublico findServidor(String matricula){
-        int index = 0;
-        while(!ListaServidor.get(index).matricula.equals(matricula)){
-            index++;
+    public ServidorPublico findServidor(String matricula) {
+        if (ListaServidor.isEmpty()) {
+            return null; 
         }
-        if(index<ListaServidor.size()){
-            return ListaServidor.get(index);
+        
+        for (ServidorPublico servidor : ListaServidor) {
+            if (servidor.matricula.equals(matricula)) {
+                return servidor;
+            }
         }
-        return null;
+        
+        return null; 
     }
 
     public void descadastrarServidor(String matricula){
-        ListaServidor.remove(findServidor(matricula));
-        tamanho--;
+        ServidorPublico servidor = findServidor(matricula);
+        if (servidor != null) {
+            ListaServidor.remove(servidor);
+            tamanho--;
+        } else {
+            System.out.println("Servidor com a matrícula " + matricula + " não encontrado.");
+        }
     }
 }

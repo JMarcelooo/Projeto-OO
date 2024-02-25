@@ -1,10 +1,9 @@
 public class Basicos extends Exames {
+
     private float altura;
     private float peso;
     private float pressaoArterial;
     private float imc;
-    
-
 
     public Basicos(float altura, float peso, float pressaoArterial){
         this.altura = altura;
@@ -28,6 +27,17 @@ public class Basicos extends Exames {
     public float getIMC(){
         calcularIMC();
         return this.imc;
+    }
+
+    public String IMC(){
+        if (this.imc<indices.imcBaixo)
+            return "Abaixo do peso";
+        else if(this.imc>=indices.imcBaixo&&this.imc<indices.imcNormal)
+            return "Normal";
+        else if(this.imc>=indices.imcNormal&&this.imc<indices.imcAlto)
+            return "Sobrepeso";
+        else
+            return "Obeso";
     }
     
     

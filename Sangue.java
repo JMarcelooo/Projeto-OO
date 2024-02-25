@@ -13,10 +13,10 @@ public class Sangue extends Exames{
     
     
     public String hemacias(){
-        if(this.hemacias>4.2&&this.hemacias<5.4){
+        if(this.hemacias>indices.hemaciasMin&&this.hemacias<indices.hemaciasMax){
             return "Saudável";
         }
-        else if(this.hemacias<4.2){
+        else if(this.hemacias<indices.hemaciasMin){
             return "Concentração Baixa";
         }
         else{
@@ -26,10 +26,10 @@ public class Sangue extends Exames{
     }
 
     public String leucocitos(){
-        if(this.leucocitos>4.0&&this.leucocitos<11){
+        if(this.leucocitos>indices.leucocitosMin&&this.leucocitos<indices.leucocitosMax){
             return "Saudável";
         }
-        else if(this.leucocitos<4.0){
+        else if(this.leucocitos<indices.leucocitosMin){
             return "Concentração Baixa";
         }
         else{
@@ -39,10 +39,10 @@ public class Sangue extends Exames{
     }
 
     public String plaquetas(){
-        if(this.plaquetas>150&&this.plaquetas<450){
+        if(this.plaquetas>indices.plaquetasMin&&this.plaquetas<indices.plaquetasMax){
             return "Saudável";
         }
-        else if(this.plaquetas<150){
+        else if(this.plaquetas<indices.plaquetasMin){
             return "Concentração Baixa";
         }
         else{

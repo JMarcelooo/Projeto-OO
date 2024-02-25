@@ -44,108 +44,113 @@ public class Main {
                     String matricula = scan.nextLine();
                     int opc2=0;
                     ServidorPublico Servidor = ListaServidor.findServidor(matricula);
-                    do{
-                        clearScreen();
-                        System.out.println("=========================================================");
-                        System.out.println("                      "+ Servidor.nome);
-                        System.out.println("1 - Cadastrar exames");
-                        System.out.println("2 - Verificar exames");
-                        System.out.println("3 - Voltar");
-                        System.out.println("=========================================================");
-                        opc2= scan.nextInt();
+                    if(Servidor == null){
+                        System.out.println("Servidor não encontrado com a matrícula informada.");
+                    }
+                    else{
+                        do{
+                            clearScreen();
+                            System.out.println("=========================================================");
+                            System.out.println("                      "+ Servidor.nome);
+                            System.out.println("1 - Cadastrar exames");
+                            System.out.println("2 - Verificar exames");
+                            System.out.println("3 - Voltar");
+                            System.out.println("=========================================================");
+                            opc2= scan.nextInt();
 
-                        switch(opc2){
+                            switch(opc2){
 
-                            case 1:
-                                int opc3;
-                                clearScreen();
-                                do{
-                                    System.out.println("=========================Exames=======================");
-                                    System.out.println("1 - Sangue");
-                                    System.out.println("2 - Urina");
-                                    System.out.println("3 - Fezes");
-                                    System.out.println("4 - Exames Básicos");
-                                    System.out.println("5 - Voltar");
-                                    System.out.println("=======================================================");
-                                    opc3 = scan.nextInt();
-
-
-                                    switch(opc3){
-                                        case 1:
-                                            Servidor.exames.inserirExame(1);
-                                            clearScreen();
-                                            System.out.println("Exames adicionados com sucesso!");
-                                            break;
-
-                                        case 2:
-                                            Servidor.exames.inserirExame(2);
-                                            clearScreen();
-                                            System.out.println("Exames adicionados com sucesso!");
-                                            break;
-
-                                        case 3:
-                                            Servidor.exames.inserirExame(3);
-                                            clearScreen();
-                                            System.out.println("Exames adicionados com sucesso!");
-                                            break;
-                                        case 4:
-                                            Servidor.exames.inserirExame(4);
-                                            clearScreen();
-                                            System.out.println("Exames adicionados com sucesso!");
-                                            break;
-                                        case 5:
-                                            break; 
-                                        default:
-                                            System.out.println("Opção Inválida!");
-                                            break;
-                                        }
-                                    }while(opc3!=5);
-                                    break;
-                                    
-                                case 2:
+                                case 1:
+                                    int opc3;
                                     clearScreen();
-                                    int opc4;
                                     do{
-                                        System.out.println("=========================================================");
+                                        System.out.println("=========================Exames=======================");
                                         System.out.println("1 - Sangue");
                                         System.out.println("2 - Urina");
                                         System.out.println("3 - Fezes");
-                                        System.out.println("4 - Basicos");
+                                        System.out.println("4 - Exames Básicos");
                                         System.out.println("5 - Voltar");
-                                        System.out.println("=========================================================");
-                                        opc4 = scan.nextInt();
-                                        switch(opc4){
+                                        System.out.println("=======================================================");
+                                        opc3 = scan.nextInt();
+
+
+                                        switch(opc3){
                                             case 1:
+                                                Servidor.exames.inserirExame(1);
                                                 clearScreen();
-                                                Servidor.exames.mostrarExames(1);
+                                                System.out.println("Exames adicionados com sucesso!");
                                                 break;
+
                                             case 2:
+                                                Servidor.exames.inserirExame(2);
                                                 clearScreen();
-                                                Servidor.exames.mostrarExames(2);
+                                                System.out.println("Exames adicionados com sucesso!");
                                                 break;
+
                                             case 3:
+                                                Servidor.exames.inserirExame(3);
                                                 clearScreen();
-                                                Servidor.exames.mostrarExames(3);
+                                                System.out.println("Exames adicionados com sucesso!");
                                                 break;
                                             case 4:
+                                                Servidor.exames.inserirExame(4);
                                                 clearScreen();
-                                                Servidor.exames.mostrarExames(4);
+                                                System.out.println("Exames adicionados com sucesso!");
                                                 break;
                                             case 5:
-                                                break;
+                                                break; 
                                             default:
-                                                clearScreen();
-                                                System.out.println("Opcao inválida");
+                                                System.out.println("Opção Inválida!");
                                                 break;
+                                            }
+                                        }while(opc3!=5);
+                                        break;
+                                        
+                                    case 2:
+                                        clearScreen();
+                                        int opc4;
+                                        do{
+                                            System.out.println("=========================================================");
+                                            System.out.println("1 - Sangue");
+                                            System.out.println("2 - Urina");
+                                            System.out.println("3 - Fezes");
+                                            System.out.println("4 - Basicos");
+                                            System.out.println("5 - Voltar");
+                                            System.out.println("=========================================================");
+                                            opc4 = scan.nextInt();
+                                            switch(opc4){
+                                                case 1:
+                                                    clearScreen();
+                                                    Servidor.exames.mostrarExames(1);
+                                                    break;
+                                                case 2:
+                                                    clearScreen();
+                                                    Servidor.exames.mostrarExames(2);
+                                                    break;
+                                                case 3:
+                                                    clearScreen();
+                                                    Servidor.exames.mostrarExames(3);
+                                                    break;
+                                                case 4:
+                                                    clearScreen();
+                                                    Servidor.exames.mostrarExames(4);
+                                                    break;
+                                                case 5:
+                                                    break;
+                                                default:
+                                                    clearScreen();
+                                                    System.out.println("Opcao inválida");
+                                                    break;
 
-                                        }
-                                    }while(opc4!=5);
-                                    break;
-                        }
+                                            }
+                                        }while(opc4!=5);
+                                        break;
+                            }
 
 
-                    }while(opc2!=3);
-                    clearScreen();
+                        }while(opc2!=3);
+                        clearScreen();
+                    }
                     break;
 
                 case 3: 
@@ -156,10 +161,9 @@ public class Main {
                     }else{
                         System.out.println("Informe a matricula:");
                         matricula = scan.nextLine();
-                        scan.nextLine().trim();
                         System.out.println("Você tem certeza que quer descadastrar esse servidor?\n(S/N)");
                         String opcString = scan.nextLine().trim();
-                        if(opcString == "S"){
+                        if(opcString.equals("S")){
                             ListaServidor.descadastrarServidor(matricula);
                             System.out.println("Servidor descadastrado com sucesso!");
                             break;

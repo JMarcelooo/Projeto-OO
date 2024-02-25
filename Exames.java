@@ -2,6 +2,8 @@ public abstract class Exames {
     private String dataExame;
     private String hospital;
     private Exames prox;
+    public Indices indices = new Indices();
+
 
 
     public void setData(String data){
