@@ -1,11 +1,12 @@
-public class Basicos extends Exames {
+public class Basico extends Exame {
 
     private float altura;
     private float peso;
     private float pressaoArterial;
     private float imc;
+    private indiceBasico indices = new indiceBasico();
 
-    public Basicos(float altura, float peso, float pressaoArterial){
+    public Basico(float altura, float peso, float pressaoArterial){
         this.altura = altura;
         this.peso = peso;
         this.pressaoArterial = pressaoArterial;

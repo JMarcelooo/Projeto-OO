@@ -4,5 +4,5 @@ public class ServidorPublico{
     String sexo;
     String departamento;
     String dataNascimento;
-    ListaExames exames = new ListaExames();
+    Sistema app = new Sistema();
 }

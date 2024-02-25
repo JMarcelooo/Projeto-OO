@@ -1,9 +1,10 @@
-public class Urina extends Exames {
+public class Urina extends Exame {
     // Parasitologia
     private boolean positivoParasitas;
     private String tipoParasita;
     private boolean testeSangueOculto;
     private float ph;
+    private indiceUrina indices = new indiceUrina();
     
 
 

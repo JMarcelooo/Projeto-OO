@@ -1,4 +1,4 @@
-public class Fezes extends Exames {
+public class Fezes extends Exame {
     
     private boolean presencaParasitas;
     private boolean presencaOvosParasitas;
@@ -7,6 +7,7 @@ public class Fezes extends Exames {
     private boolean sangueOculto;
     private boolean presencaGordura;
     private double pH;
+    private indiceFezes indices = new indiceFezes();
 
     public Fezes(boolean presencaParasitas, boolean presencaOvosParasitas,String tipoParasita, String cor, boolean sangueOculto, boolean presencaGordura, double pH) {
             this.presencaParasitas = presencaParasitas;

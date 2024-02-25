@@ -16,7 +16,7 @@ public class Main {
     public static void main(String[] args) {
         
         Scanner scan = new Scanner(System.in);
-        ListaServidores ListaServidor = new ListaServidores();
+        Sistema app = new Sistema();
         int opc1;
         
         do{
@@ -34,7 +34,7 @@ public class Main {
                 case 1:
                     clearScreen();
                     System.out.println("Informe os dados do servidor:");
-                    ListaServidor.cadastrarServidor();
+                    app.cadastrarServidor();
                     System.err.println("Servidor sendo cadastrado...\nServidor cadastrado com sucesso!");
                     break;
 
@@ -43,7 +43,7 @@ public class Main {
                     System.out.print("Informe a matrícula:");
                     String matricula = scan.nextLine();
                     int opc2=0;
-                    ServidorPublico Servidor = ListaServidor.findServidor(matricula);
+                    ServidorPublico Servidor = app.findServidor(matricula);
                     if(Servidor == null){
                         System.out.println("Servidor não encontrado com a matrícula informada.");
                     }
@@ -76,24 +76,24 @@ public class Main {
 
                                         switch(opc3){
                                             case 1:
-                                                Servidor.exames.inserirExame(1);
+                                                Servidor.app.inserirExame(1);
                                                 clearScreen();
                                                 System.out.println("Exames adicionados com sucesso!");
                                                 break;
 
                                             case 2:
-                                                Servidor.exames.inserirExame(2);
+                                                Servidor.app.inserirExame(2);
                                                 clearScreen();
                                                 System.out.println("Exames adicionados com sucesso!");
                                                 break;
 
                                             case 3:
-                                                Servidor.exames.inserirExame(3);
+                                                Servidor.app.inserirExame(3);
                                                 clearScreen();
                                                 System.out.println("Exames adicionados com sucesso!");
                                                 break;
                                             case 4:
-                                                Servidor.exames.inserirExame(4);
+                                                Servidor.app.inserirExame(4);
                                                 clearScreen();
                                                 System.out.println("Exames adicionados com sucesso!");
                                                 break;
@@ -121,19 +121,19 @@ public class Main {
                                             switch(opc4){
                                                 case 1:
                                                     clearScreen();
-                                                    Servidor.exames.mostrarExames(1);
+                                                    Servidor.app.mostrarExames(1);
                                                     break;
                                                 case 2:
                                                     clearScreen();
-                                                    Servidor.exames.mostrarExames(2);
+                                                    Servidor.app.mostrarExames(2);
                                                     break;
                                                 case 3:
                                                     clearScreen();
-                                                    Servidor.exames.mostrarExames(3);
+                                                    Servidor.app.mostrarExames(3);
                                                     break;
                                                 case 4:
                                                     clearScreen();
-                                                    Servidor.exames.mostrarExames(4);
+                                                    Servidor.app.mostrarExames(4);
                                                     break;
                                                 case 5:
                                                     break;
@@ -155,7 +155,7 @@ public class Main {
 
                 case 3: 
                     clearScreen();
-                    if(ListaServidor.tamanho==0){
+                    if(app.ListaServidor.size()==0){
                         System.out.println("Não há servidores cadastrados...");
                         break;
                     }else{
@@ -164,7 +164,7 @@ public class Main {
                         System.out.println("Você tem certeza que quer descadastrar esse servidor?\n(S/N)");
                         String opcString = scan.nextLine().trim();
                         if(opcString.equals("S")){
-                            ListaServidor.descadastrarServidor(matricula);
+                            app.descadastrarServidor(matricula);
                             System.out.println("Servidor descadastrado com sucesso!");
                             break;
                         }else{

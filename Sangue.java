@@ -1,8 +1,9 @@
-public class Sangue extends Exames{
+public class Sangue extends Exame{
     
     private double hemacias;
     private double leucocitos;
     private double plaquetas;
+    private indiceSangue indices = new indiceSangue();
 
     
     public Sangue(double hemacias, double leucocitos, double plaquetas){
